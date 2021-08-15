@@ -49,7 +49,7 @@ private:
     color skinColor;
     color hairColor;
     tool weapon;
-}
+};
 ```
 
 随着角色信息变多，构造函数就会需要非常多的参数：`Person(10, yellow, red, gun, ......)`，这种时候可以先声明一个生成器类：
@@ -66,7 +66,7 @@ public:
     virtual Person* GetPerson() const { return 0; }
 protected:
     PersonBuilder();
-}
+};
 ```
 
 接着定义一个指导Builder创建Person类的Director类：
@@ -77,10 +77,8 @@ public:
     PersonDirector();
     
     void Construct(PersonBuilder& builder)；
-}
+};
 ```
-
-
 
 ```c++
 void PersonDiector::Construct(PersonBuilder &builder) {
@@ -108,7 +106,7 @@ public:
     virtual Person* GetPerson() const { return curPerson; }
 private:
     Person* curPerson;
-}
+};
 ```
 
 客户只需要创建一个`StandardPersonBuilder`作为函数`Construct()`的参数，就可以构造一个标准角色：

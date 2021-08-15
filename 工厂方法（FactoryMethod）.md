@@ -51,7 +51,7 @@ Creator依赖于它的子类来定义工厂方法，所以它返回一个适当�
 class Cloth {
 public:
     virtual int KeepWarm() const = 0;
-}
+};
 ```
 
 ```c++
@@ -60,7 +60,7 @@ public:
 	LongSleeve();
     virtual int KeepWarm() const
     	{ return 10; }
-}
+};
 ```
 
 ```c++
@@ -69,7 +69,7 @@ public:
 	ShortSleeve();
 	virtual int KeepWarm() const
 		{ return 5; }
-}
+};
 ```
 
 纺织品加工厂根据季节选择生产哪一种：
@@ -84,7 +84,7 @@ protected:
 	virtual Cloth* CreateCloth() const = 0;
 private:
 	Cloth* _cloth;
-}
+};
 
 Cloth* Creator::GetCloth() {
 	if (_cloth = nullptr) {
@@ -101,7 +101,7 @@ public:
     
     virtual Cloth* CreatCloth()
     	{ return new LongSeleeve; }
-}
+};
 ```
 
 ```c++
@@ -111,7 +111,7 @@ public:
     
     virtual Cloth* CreatorCloth()
     	{ return new ShortSeleeve; }
-}
+};
 ```
 
 这样在纺织品加工厂生产衣服时候，很容易选择具体生产长袖还是短袖：
@@ -146,7 +146,7 @@ ShortSleeve* ss = sc.GetCloth();
        if (id == B) return new ProductB;
        // ...
        return nullptr;
-   }
+   };
    ```
 
    可以通过重定义工厂方法进行扩展或者改变Creator生产的产品：

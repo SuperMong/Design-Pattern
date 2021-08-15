@@ -54,7 +54,7 @@ public:
     
     virtual Computer* CreateComputer() const = 0;
     virtual Phone* CreatePhone() const = 0;
-}
+};
 ```
 
 接着声明ElectronicFactory的具体子类HuaweiFactory和AppleFactory，它们实现创建Computer和Phone的操作：
@@ -68,7 +68,7 @@ public:
     	{ return new HuaweiComputer; }
     virtual Phone* CreatePhone() const
     	{ return new HuaweiPhone; }
-}
+};
 ```
 
 ```c++
@@ -80,7 +80,7 @@ public:
     	{ return new AppleComputer; }
     virtual Phone* CreatePhone() const
     	{ return new ApplePhone; }
-}
+};
 ```
 
 这样，客户可以通过把ElectronicFactory作为一个参数来创建Computer对象和Phone对象：
